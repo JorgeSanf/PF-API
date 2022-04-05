@@ -3,6 +3,7 @@ package com.pf.api;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,22 +18,23 @@ public class DocsController {
         this.docService = docService;
     }
 
-    @GetMapping(value = "/api")
+    @GetMapping(value = "/api", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<Doc> getAllDocs() {
         return docService.findAll();
     }
 
-    @GetMapping(value = "/api/tema/{tema}")
+    @GetMapping(value = "/api/tema/{tema}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<Doc> getByTema(@PathVariable String tema) {
         return docService.findByTema(tema);
     }
 
-    @GetMapping("/api/id/{id}")
+    @GetMapping(value = "/api/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public Optional<Doc> getDocById(@PathVariable String id) throws Exception {
         return docService.findById(id);
     }
 
-    @GetMapping("/api/temas")
+    // @GetMapping("/api/temas")
+    @GetMapping(value = "/api/temas", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<String> getTemas() {
         return docService.findTemas();
     }
