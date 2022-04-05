@@ -10,5 +10,7 @@ public interface DocRepository extends CosmosRepository<Doc, String> {
 
     long countByAutor(String autor);
 
+    // Iterable<Doc> findTemas();
+
     // Doc findOne(String titulo, String autor);
 }

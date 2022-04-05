@@ -13,6 +13,7 @@ public interface AnnotatedQueriesDocRepositoryCodeSnippet extends CosmosReposito
 
     @Query("select value count(1) from c where c.tema = @tema")
     long getNumberByTema(@Param("tema") String tema);
+
 }
 
 /*
@@ -20,3 +21,10 @@ public interface AnnotatedQueriesDocRepositoryCodeSnippet extends CosmosReposito
  * List<Doc> getUsersWithOffsetLimit(@Param("offset") int
  * offset, @Param("limit") int limit);
  */
+
+/*
+ * @Query("select tema from c")
+ * Iterable<Doc> getTemas();
+ */
+// He metido Iterable porque lo he hecho con otros, pero suena mejor List
+// ¿Cómo hacer esto?

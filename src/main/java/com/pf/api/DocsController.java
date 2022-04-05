@@ -32,6 +32,11 @@ public class DocsController {
         return docService.findById(id);
     }
 
+    @GetMapping("/api/temas")
+    public List<String> getTemas() {
+        return docService.findTemas();
+    }
+
 }
 
 /*

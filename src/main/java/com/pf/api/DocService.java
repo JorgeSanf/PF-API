@@ -15,7 +15,7 @@ public class DocService {
     }
 
     List<Doc> findByTema(String tema) {
-        List<Doc> lista = new ArrayList();
+        List<Doc> lista = new ArrayList<Doc>();
         Iterable<Doc> it = docRepository.findByTema(tema);
         for (Doc doc : it) {
             lista.add(doc);
@@ -27,14 +27,8 @@ public class DocService {
         return docRepository.countByAutor(autor);
     }
 
-    /*
-     * Doc findOne(String titulo, String autor) {
-     * return docRepository.findOne(titulo, autor);
-     * }
-     */
-
     public List<Doc> findAll() {
-        List<Doc> lista = new ArrayList();
+        List<Doc> lista = new ArrayList<Doc>();
         Iterable<Doc> it = docRepository.findAll();
         for (Doc doc : it) {
             lista.add(doc);
@@ -45,4 +39,33 @@ public class DocService {
     public Optional<Doc> findById(String id) {
         return docRepository.findById(id);
     }
+
+    public List<String> findTemas() {
+        List<String> lista = new ArrayList<String>();
+        Iterable<Doc> it = docRepository.findAll();
+
+        for (Doc doc : it) {
+
+            lista.add(doc.getTema());
+
+            boolean repetido = false;
+            for (String tema : lista) {
+                if (doc.getTema().equalsIgnoreCase(tema)) {
+                    repetido = true;
+                }
+            }
+
+            if (!repetido) {
+                lista.add(doc.getTema());
+            }
+        }
+        return lista;
+    }
+
 }
+
+/*
+ * Doc findOne(String titulo, String autor) {
+ * return docRepository.findOne(titulo, autor);
+ * }
+ */
