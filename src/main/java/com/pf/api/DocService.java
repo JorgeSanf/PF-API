@@ -62,6 +62,24 @@ public class DocService {
         return lista;
     }
 
+    public Doc save(Doc doc) {
+
+        docRepository.save(doc);
+        return doc;
+    }
+
+    public String delete(String id) {
+
+        Optional<Doc> doc = docRepository.findById(id);
+        if (doc.isPresent()) {
+            Doc docBorrar = doc.get();
+            docRepository.delete(docBorrar);
+            return "Documento borrado";
+        } else {
+            return "Documento no encontrado";
+        }
+    }
+
 }
 
 /*
