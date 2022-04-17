@@ -45,8 +45,7 @@ public class DocService {
         Iterable<Doc> it = docRepository.findAll();
 
         for (Doc doc : it) {
-
-            lista.add(doc.getTema());
+            // lista.add(doc.getTema());
 
             boolean repetido = false;
             for (String tema : lista) {
