@@ -14,6 +14,13 @@ Documentos de un tema:
 Documento determinado:
 ~/docus/api/id/{id}
 
+## POST
+
+~/docus/api/add
+
+## DELETE
+~/docus/api/delete/{id}
+
 
 # ---------------
 
