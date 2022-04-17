@@ -64,11 +64,13 @@ public class DocService {
 
     public Doc save(Doc doc) {
 
-        if (doc.getId() == null) {
-            int random = (int) (Math.random() * 1000);
-            String id = String.valueOf(random);
-            doc.setId(id);
-        }
+        /*
+         * if (doc.getId() == null) {
+         * int random = (int) (Math.random() * 1000);
+         * String id = String.valueOf(random);
+         * doc.setId(id);
+         * }
+         */
         docRepository.save(doc);
         return doc;
     }
