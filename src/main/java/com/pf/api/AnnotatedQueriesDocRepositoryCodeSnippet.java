@@ -14,6 +14,9 @@ public interface AnnotatedQueriesDocRepositoryCodeSnippet extends CosmosReposito
     @Query("select value count(1) from c where c.tema = @tema")
     long getNumberByTema(@Param("tema") String tema);
 
+    @Query("select distinct tema from c")
+    List<String> getListaTemas();
+
 }
 
 /*

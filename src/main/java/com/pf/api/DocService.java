@@ -42,14 +42,15 @@ public class DocService {
 
     public List<String> findTemas() {
         List<String> lista = new ArrayList<String>();
+
         Iterable<Doc> it = docRepository.findAll();
 
         for (Doc doc : it) {
-            // lista.add(doc.getTema());
 
             boolean repetido = false;
+
             for (String tema : lista) {
-                if (doc.getTema().equalsIgnoreCase(tema)) {
+                if (doc.getTema().contains(tema)) {
                     repetido = true;
                 }
             }
@@ -58,6 +59,14 @@ public class DocService {
                 lista.add(doc.getTema());
             }
         }
+
+        /*
+         * List<Object> temasObj = docRepository.findTemas();
+         * for (Object temaObj : temasObj) {
+         * lista.add(temaObj.tema.value);
+         * }
+         */
+
         return lista;
     }
 
