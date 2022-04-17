@@ -3,9 +3,14 @@ package com.pf.api;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,6 +42,25 @@ public class DocsController {
     @GetMapping(value = "/api/temas", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<String> getTemas() {
         return docService.findTemas();
+    }
+
+    @PostMapping(value = "/api/add")
+    public String addDoc(@Valid @RequestBody Doc doc) {
+        Doc returnedDoc = docService.save(doc);
+        /*
+         * if (returnedDoc.getId().isEmpty()) {
+         * throw new ValidationException("Error adding Application to Cosmos DB.");
+         * }
+         * return new StatusMessage("200", "Application Added");
+         */
+        return "Documento añadido" + returnedDoc;
+    }
+
+    @DeleteMapping("/api/delete/{id}")
+    public String deleteDoc(@PathVariable String id) {
+
+        String borrado = docService.delete(id);
+        return borrado;
     }
 
 }
