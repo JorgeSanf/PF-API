@@ -31,6 +31,13 @@ public class Doc {
         this.texto = texto;
     }
 
+    public Doc(String tema, String titulo, String autor, String texto) {
+        this.tema = tema;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.texto = texto;
+    }
+
     @Override
     public String toString() {
         return String.format("%s, %s, %s", titulo, tema, autor);

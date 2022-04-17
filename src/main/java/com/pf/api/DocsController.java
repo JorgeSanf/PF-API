@@ -3,7 +3,7 @@ package com.pf.api;
 import java.util.List;
 import java.util.Optional;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -45,7 +45,7 @@ public class DocsController {
     }
 
     @PostMapping(value = "/api/add")
-    public String addDoc(@Valid @RequestBody Doc doc) {
+    public String addDoc(@RequestBody Doc doc) {
         Doc returnedDoc = docService.save(doc);
         /*
          * if (returnedDoc.getId().isEmpty()) {
@@ -53,7 +53,7 @@ public class DocsController {
          * }
          * return new StatusMessage("200", "Application Added");
          */
-        return "Documento añadido" + returnedDoc;
+        return "Documento añadido" + returnedDoc.getId();
     }
 
     @DeleteMapping("/api/delete/{id}")
