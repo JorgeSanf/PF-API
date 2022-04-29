@@ -22,10 +22,10 @@ public class Doc {
 
     private String titulo;
     private String autor;
-    private String texto;
+    // private String texto;
     private String enlace;
 
-    private ArrayList<Entrada> entradas;
+    // private ArrayList<Entrada> entradas;
 
     public Doc() {
     }
@@ -70,6 +70,6 @@ public class Doc {
 
     @Override
     public String toString() {
-        return String.format("%s, %s, %s", titulo, tema, autor);
+        return String.format("%s, %s, %s", titulo, tema, autor, enlace);
     }
 }
