@@ -50,20 +50,23 @@ public class Doc {
      * }
      */
 
-    public Doc(String tema, String titulo, String autor, String texto, ArrayList<Entrada> entradas) {
-        this.tema = tema;
-        this.titulo = titulo;
-        this.autor = autor;
-        this.texto = texto;
-        this.entradas = entradas;
-    }
-
     public Doc(String tema, String titulo, String autor, String enlace) {
         this.tema = tema;
         this.titulo = titulo;
         this.autor = autor;
         this.enlace = enlace;
     }
+
+    /*
+     * public Doc(String tema, String titulo, String autor, String texto,
+     * ArrayList<Entrada> entradas) {
+     * this.tema = tema;
+     * this.titulo = titulo;
+     * this.autor = autor;
+     * this.texto = texto;
+     * this.entradas = entradas;
+     * }
+     */
 
     @Override
     public String toString() {
