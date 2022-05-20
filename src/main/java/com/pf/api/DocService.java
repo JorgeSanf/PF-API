@@ -40,6 +40,10 @@ public class DocService {
         return docRepository.findById(id);
     }
 
+    public List<Doc> findByAutor(String autor) {
+        return docRepository.findByAutor(autor);
+    }
+
     public List<String> findTemas() {
         List<String> lista = new ArrayList<String>();
 

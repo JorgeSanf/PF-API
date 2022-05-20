@@ -11,6 +11,8 @@ import org.springframework.stereotype.Repository;
 public interface DocRepository extends CosmosRepository<Doc, String> {
     Iterable<Doc> findByTema(String tema);
 
+    List<Doc> findByAutor(String autor);
+
     long countByAutor(String autor);
 
     @Query("select distinct c.tema from c")

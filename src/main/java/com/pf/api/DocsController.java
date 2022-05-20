@@ -3,6 +3,8 @@ package com.pf.api;
 import java.util.List;
 import java.util.Optional;
 
+import com.azure.core.annotation.Get;
+
 //import javax.validation.Valid;
 
 import org.springframework.http.MediaType;
@@ -31,6 +33,11 @@ public class DocsController {
     @GetMapping(value = "/api/tema/{tema}", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<Doc> getByTema(@PathVariable String tema) {
         return docService.findByTema(tema);
+    }
+
+    @GetMapping(value = "/api/autor/{autor}", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<Doc> getByAutor(@PathVariable String autor) {
+        return docService.findByAutor(autor);
     }
 
     @GetMapping(value = "/api/id/{id}", produces = { MediaType.APPLICATION_JSON_VALUE })
