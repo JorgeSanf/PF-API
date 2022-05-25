@@ -3,8 +3,6 @@ package com.pf.api;
 import java.util.List;
 import java.util.Optional;
 
-import com.azure.core.annotation.Get;
-
 //import javax.validation.Valid;
 
 import org.springframework.http.MediaType;
@@ -68,6 +66,11 @@ public class DocsController {
 
         String borrado = docService.delete(id);
         return borrado;
+    }
+
+    @GetMapping(value = "/api/mensajes", produces = { MediaType.APPLICATION_JSON_VALUE })
+    public List<Mensaje> getAllMensajes() {
+        return docService.findAllM();
     }
 
 }

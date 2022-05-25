@@ -9,9 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class DocService {
     private DocRepository docRepository;
+    private MensajeRepository msgRepository;
 
-    public DocService(DocRepository docRepository) {
+    public DocService(DocRepository docRepository, MensajeRepository msgRepository) {
         this.docRepository = docRepository;
+        this.msgRepository = msgRepository;
     }
 
     List<Doc> findByTema(String tema) {
@@ -25,6 +27,15 @@ public class DocService {
 
     long countByAutor(String autor) {
         return docRepository.countByAutor(autor);
+    }
+
+    public List<Mensaje> findAllM() {
+        List<Mensaje> lista = new ArrayList<Mensaje>();
+        Iterable<Mensaje> it = msgRepository.findAll();
+        for (Mensaje msg : it) {
+            lista.add(msg);
+        }
+        return lista;
     }
 
     public List<Doc> findAll() {
